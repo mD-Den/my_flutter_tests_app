@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-import './process.dart';
-import './result.dart';
+import 'package:flutter_complete_guide/shared_widgets/result_test.dart';
 
-import 'main.dart';
+import '../shared_widgets/process.dart';
 
-class ScreenTest extends StatefulWidget {
-  const ScreenTest({Key key}) : super(key: key);
+class BekaTest extends StatefulWidget {
+  const BekaTest({Key key}) : super(key: key);
+  static String previewBeka =
+      'Данный тест содержит наиболее распространенные симптомы тревоги. Пожалуйста, внимательно изучите каждый пункт. Отметьте, насколько Вас беспокоил каждый из этих симптомов в течение прошедшей недели, включая сегодняшний день:\n1) Совсем не беспокоил\n2) Слегка - не слишком меня беспокоил\n 3) Умеренно - это было неприятно, но я мог(ла) это переносить\n 4) Очень сильно - я с трудом мог(ла) это выносить';
 
   @override
-  _ScreenTestState createState() => _ScreenTestState();
+  _BekaTestState createState() => _BekaTestState();
 }
 
-class _ScreenTestState extends State<ScreenTest> {
+class _BekaTestState extends State<BekaTest> {
+  final int numberTest = 1;
   final _questions = const [
     {
       'questionText': 'Ощущение онемения или покалывания в теле',
@@ -289,7 +291,12 @@ class _ScreenTestState extends State<ScreenTest> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Тест Бека'),
+        title: FittedBox(
+          child: const Text(
+            'Тест "Шкала Тревоги Бека"',
+            style: TextStyle(fontSize: 30),
+          ),
+        ),
       ),
       body: Center(
         child: Column(
@@ -301,7 +308,7 @@ class _ScreenTestState extends State<ScreenTest> {
                       questionIndex: _questionIndex,
                       questions: _questions,
                     )
-                  : Result(_totalScore, _resetProcess),
+                  : ResultTest(_totalScore, _resetProcess, numberTest),
             ),
           ],
         ),
