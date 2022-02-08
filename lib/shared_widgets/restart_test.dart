@@ -19,7 +19,7 @@ class RestartTest extends StatelessWidget {
                   width: 200,
                   child: Center(
                       child: const Text(
-                    'Начать сначала?',
+                    'Начать сначала???',
                     style: TextStyle(fontSize: 25),
                   )))),
         ),
